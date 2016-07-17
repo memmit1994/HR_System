@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717082057) do
+ActiveRecord::Schema.define(version: 20160717192939) do
 
   create_table "availables", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160717082057) do
     t.integer  "joined_yar",   limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "type",         limit: 4
   end
 
 end
