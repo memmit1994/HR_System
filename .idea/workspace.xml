@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3a8db6e-2dc6-438e-976f-ede05a5750bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/createEvent.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/volunteer_dashboard.erb" />
+    <list default="true" id="a3a8db6e-2dc6-438e-976f-ede05a5750bc" name="Default" comment="&quot;added Create Event functionality&quot;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/shifts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/shifts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/availables/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/availables/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/index.html.erb" afterPath="$PROJECT_DIR$/app/views/events/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/show.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shifts/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/shifts/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shifts/new.html.erb" afterPath="$PROJECT_DIR$/app/views/shifts/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shifts/show.html.erb" afterPath="$PROJECT_DIR$/app/views/shifts/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="HR_Task.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -528,12 +515,20 @@
       <workItem from="1468742734161" duration="4171000" />
       <workItem from="1468746999666" duration="377000" />
       <workItem from="1468772965173" duration="3121000" />
-      <workItem from="1468788039853" duration="7046000" />
+      <workItem from="1468788039853" duration="7260000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;added Create Event functionality&quot;">
+      <created>1468795965776</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1468795965776</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16482000" />
+    <option name="totallyTimeSpent" value="16696000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -598,6 +593,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;added Create Event functionality&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;added Create Event functionality&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
