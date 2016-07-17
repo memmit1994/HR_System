@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :sessions
+  # resources :sessions
   resources :shifts
   resources :committees_joineds
   resources :availables
