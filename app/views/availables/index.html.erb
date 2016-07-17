@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Availables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Shift</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @availables.each do |available| %>
+      <tr>
+        <td><%= available.user_id %></td>
+        <td><%= available.shift_id %></td>
+        <td><%= link_to 'Show', available %></td>
+        <td><%= link_to 'Edit', edit_available_path(available) %></td>
+        <td><%= link_to 'Destroy', available, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Available', new_available_path %>
