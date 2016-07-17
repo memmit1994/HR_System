@@ -1,2 +1,7 @@
+<%= form_tag new_available_path,:method => 'get' do %>
+    <p>
+      <%= collection_select :event,:event_id,Event.all,:id,:name %>
+      <%= submit_tag 'Fill Availability' %>
+    </p>
+<% end %>
 
-<%= link_to 'fill Availability',new_available_path %>

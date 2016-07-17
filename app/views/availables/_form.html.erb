@@ -10,15 +10,23 @@
       </ul>
     </div>
   <% end %>
-
+<!-- TODO!! get user from session -->
   <div class="field">
     <%= f.label :user_id %><br>
     <%= f.collection_select :user_id,User.all,:id,:name %>
   </div>
-  <div class="field">
-    <%= f.label :shift_id %><br>
-    <%= f.number_field :shift_id %>
-  </div>
+    <% if params['event'] %>
+        <div class="field">
+          <%= f.label :shift_id %><br>
+          <%= f.collection_select :shift_id,Event.find(params['event']['event_id']).shifts,:id,:start_time %>
+        </div>
+        <% else %>
+        <div class="field">
+          <%= f.label :shift_id %><br>
+          <%= f.number_field :shift_id %>
+        </div>
+        <% end %>
+
 
   <div class="actions">
     <%= f.submit %>
