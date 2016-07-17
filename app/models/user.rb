@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :shifts,join_table: "tasks"
   has_and_belongs_to_many :sessions,join_table: "tasks"
   has_and_belongs_to_many :committees, join_table: "committees_joineds"
-
+  enum type: [ :admin , :board , :head , :volunteer ]
 end
