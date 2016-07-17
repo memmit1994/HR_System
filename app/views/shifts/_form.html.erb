@@ -19,10 +19,14 @@
     <%= f.label :end %><br>
     <%= f.datetime_select :end %>
   </div>
-  <div class="field">
-    <%= f.label :event_id %><br>
-    <%= f.number_field :event_id %>
-  </div>
+  <<% if params['event_id'] %>
+        <%= f.hidden_field :event_id , :value => params['event_id']%>
+  <% else %>
+      <div class="field">
+        <%= f.label :event_id %><br>
+        <%= f.collection_select :event_id,Event.all,:id,:name %>
+      </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

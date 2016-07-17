@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root  'events#index'
+  get '/users/createEvent' => 'users#createEvent'
+  get '/users/volunteer_dashboard' => 'users#volunteer_dashboard'
   resources :sessions
   resources :shifts
   resources :committees_joineds

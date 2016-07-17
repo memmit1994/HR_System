@@ -37,6 +37,7 @@ class ShiftsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /shifts/1
   # PATCH/PUT /shifts/1.json
   def update

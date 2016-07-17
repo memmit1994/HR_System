@@ -12,7 +12,7 @@
 
 <p>
   <strong>Event:</strong>
-  <%= @session.event_id %>
+  <%= Event.find(@session.event_id).name %>
 </p>
 
 <p>

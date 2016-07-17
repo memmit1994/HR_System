@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def createEvent
+  end
+
+  def volunteer_dashboard
+  end
   # GET /users/1
   # GET /users/1.json
   def show
