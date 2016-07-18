@@ -1,3 +1,4 @@
 class Committee < ActiveRecord::Base
-  has_and_belongs_to_many :users, join_table: "committees_joineds"
+  has_many :committee_joins
+  has_many :users, through: :committee_joins
 end

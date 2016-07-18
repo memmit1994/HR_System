@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  root  'events#index'
   get '/users/createEvent' => 'users#createEvent'
   get '/users/volunteer_dashboard' => 'users#volunteer_dashboard'
-  resources :sessions
+  devise_for :users
+  # resources :sessions
   resources :shifts
-  resources :committees_joineds
   resources :availables
   resources :events
   resources :tasks
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'events#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
