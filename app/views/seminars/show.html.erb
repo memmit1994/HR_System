@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Start:</strong>
+  <%= @seminar.start %>
+</p>
+<p>
+  <strong>End:</strong>
+  <%= @seminar.end %>
+</p>
+<p>
+  <strong>Event:</strong>
+  <%= Event.find(@seminar.event_id).name %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @seminar.name %>
+</p>
+<p>
+  <strong>Speaker:</strong>
+  <%= @seminar.speaker %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @seminar.description %>
+</p>
+<%= link_to 'Edit', edit_seminar_path(@seminar) %>
