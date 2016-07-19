@@ -1,5 +1,0 @@
-<h1>New Session  <%= params['event_id']?'for '+Event.find(params['event_id']).name+' event':''%></h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', sessions_path %>

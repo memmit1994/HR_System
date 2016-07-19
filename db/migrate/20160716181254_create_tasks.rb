@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :description
       t.integer :user_id
-      t.integer :session_id
+      t.integer :seminar_id
       t.integer :shift_id
 
       t.timestamps null: false

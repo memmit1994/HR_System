@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717203507) do
+ActiveRecord::Schema.define(version: 20160718131819) do
 
   create_table "availables", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -20,15 +20,15 @@ ActiveRecord::Schema.define(version: 20160717203507) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "committees", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  create_table "committee_joins", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "committee_id", limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "committees_joineds", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "committee_id", limit: 4
+  create_table "committees", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160717203507) do
     t.integer  "user_id",    limit: 4
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "seminars", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
     t.integer  "event_id",    limit: 4
