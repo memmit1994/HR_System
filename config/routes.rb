@@ -3,12 +3,6 @@ Rails.application.routes.draw do
   root  'events#index'
   get '/users/createEvent' => 'users#createEvent'
   get '/users/volunteer_dashboard' => 'users#volunteer_dashboard'
-  devise_scope :user do
-    match '/sessions/user', to: 'devise/sessions#create', via: :post
-  end
-  #TODO COMPLETE HERE el line dah feeh moshkela
-  devise_for :users , :controllers => { registrations: 'registrations' }
-
   get '/users/createEvent' => 'users#createEvent'
   get '/users/volunteer_dashboard' => 'users#volunteer_dashboard'
   devise_for :users

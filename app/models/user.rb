@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :shifts,join_table: "availables"
   has_and_belongs_to_many :shifts,join_table: "tasks"
   has_and_belongs_to_many :seminars,join_table: "tasks"
-  enum type: [ :admin , :board , :head , :volunteer ]
+  enum position: [ :admin , :board , :head , :volunteer ]
 end
