@@ -24,15 +24,12 @@ class AvailablesController < ApplicationController
   # POST /availables
   # POST /availables.json
   def create
-    @available = Available.new(available_params)
-
-    respond_to do |format|
-      if @available.save
-        format.html { redirect_to @available, notice: 'Available was successfully created.' }
-        format.json { render :show, status: :created, location: @available }
-      else
-        format.html { render :new }
-        format.json { render json: @available.errors, status: :unprocessable_entity }
+    shift_ids = params['available']['shift_id']
+    u_id = params['available']['user_id'].to_i
+    shift_ids.each do |sh_id|
+      if sh_id != ''
+        @available = Available.new(user_id: u_id, shift_id: sh_id)
+        @available.save
       end
     end
   end
@@ -62,13 +59,13 @@ class AvailablesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_available
-      @available = Available.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_available
+    @available = Available.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def available_params
-      params.require(:available).permit(:user_id, :shift_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def available_params
+    params.require(:available).permit(:user_id, :shift_id)
+  end
 end
