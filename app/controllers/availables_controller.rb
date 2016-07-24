@@ -15,11 +15,11 @@ class AvailablesController < ApplicationController
   # GET /availables/new
   def new
     @available = Available.new
-    @shifts = []
+    @shifts_submitted_before = []
 
     Shift.all.each do |shift|
-      if Available.where(user_id:current_user.id,shift_id:shift.id).count == 0
-        @shifts << shift
+      if Available.where(user_id: current_user.id, shift_id: shift.id).count == 0
+        @shifts_submitted_before << shift
       end
     end
   end
@@ -31,12 +31,15 @@ class AvailablesController < ApplicationController
   # POST /availables
   # POST /availables.json
   def create
+
     shift_ids = params['available']['shift_id']
     u_id = params['available']['user_id'].to_i
     shift_ids.each do |sh_id|
       if sh_id != ''
-        @available = Available.new(user_id: u_id, shift_id: sh_id)
-        @available.save
+        if not Available.where(user_id: u_id, shift_id: sh_id).count > 0
+          @available = Available.new(user_id: u_id, shift_id: sh_id)
+          @available.save
+        end
       end
     end
     respond_to do |format|

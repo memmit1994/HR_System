@@ -8,7 +8,7 @@ class ShiftsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:shifts)
+    assert_not_nil assigns(:shifts_submitted_before)
   end
 
   test "should get new" do

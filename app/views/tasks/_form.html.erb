@@ -15,17 +15,6 @@
       <%= f.text_field :description %>
     </div>
 
-
-    <select name="task[user_id]" id="task_user_id">
-      <% User.all.each do |user| %>
-          <% if Task.where(user_id: user.id, shift_id: params['shift_id']).count > 0 %>
-              <option value=<%= user.id %>><%= user.name %></option>
-          <% else %>
-              <option value=<%= user.id %> disabled><%= user.name %></option>
-          <% end %>
-      <% end %>
-    </select>
-
     <% if params['seminar_id'] %>
 
         <select name="task[user_id]" id="task_user_id">
