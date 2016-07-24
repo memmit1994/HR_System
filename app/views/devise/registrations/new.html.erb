@@ -29,8 +29,12 @@
     </div>
 
     <div class="field">
+      <%= f.label :position %>
       <%= f.select :position, options_for_select(User.positions.keys) %>
     </div>
+
+
+
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>

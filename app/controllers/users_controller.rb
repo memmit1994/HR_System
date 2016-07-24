@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+
     params[:position] = params[:position].to_i
     @user = User.new(user_params)
 

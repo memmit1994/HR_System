@@ -4,7 +4,12 @@ class ShiftsController < ApplicationController
   # GET /shifts
   # GET /shifts.json
   def index
-    @shifts = Shift.all
+    if params['event_id']
+      @shifts = Shift.where(event_id: params['event_id'])
+    else
+      @shifts = Shift.all
+    end
+
   end
 
   # GET /shifts/1

@@ -15,6 +15,13 @@ class AvailablesController < ApplicationController
   # GET /availables/new
   def new
     @available = Available.new
+    @shifts = []
+
+    Shift.all.each do |shift|
+      if Available.where(user_id:current_user.id,shift_id:shift.id).count == 0
+        @shifts << shift
+      end
+    end
   end
 
   # GET /availables/1/edit
@@ -31,6 +38,9 @@ class AvailablesController < ApplicationController
         @available = Available.new(user_id: u_id, shift_id: sh_id)
         @available.save
       end
+    end
+    respond_to do |format|
+      format.html { redirect_to users_volunteer_dashboard_path, notice: 'Thank you' }
     end
   end
 

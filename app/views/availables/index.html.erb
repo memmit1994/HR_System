@@ -14,8 +14,8 @@
   <tbody>
     <% @availables.each do |available| %>
       <tr>
-        <td><%= available.user_id %></td>
-        <td><%= available.shift_id %></td>
+        <td><%= User.find(available.user_id).name %></td>
+        <td><%= Shift.find(available.shift_id).start_time %></td>
         <td><%= link_to 'Show', available %></td>
         <td><%= link_to 'Edit', edit_available_path(available) %></td>
         <td><%= link_to 'Destroy', available, method: :delete, data: { confirm: 'Are you sure?' } %></td>

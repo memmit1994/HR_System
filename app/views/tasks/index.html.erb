@@ -14,9 +14,9 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.description %></td>
-        <td><%= task.user_id %></td>
-        <td><%= task.seminar_id %></td>
-        <td><%= task.shift_id %></td>
+        <td><%= User.find_by_id(task.user_id) ? User.find_by_id(task.user_id).name : '' %></td>
+        <td><%= Seminar.find_by_id(task.seminar_id) ? Seminar.find_by_id(task.seminar_id).start_time : '' %></td>
+        <td><%= Shift.find_by_id(task.shift_id) ? Shift.find_by_id(task.shift_id).start_time : '' %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

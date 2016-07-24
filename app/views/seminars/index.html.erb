@@ -24,6 +24,7 @@
         <td><%= link_to 'Show', seminar %></td>
         <td><%= link_to 'Edit', edit_seminar_path(seminar) %></td>
         <td><%= link_to 'Destroy', seminar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Assign Task For Seminar',{:controller => 'tasks',:action => 'new',:seminar_id => seminar.id } %></td>
       </tr>
     <% end %>
   </tbody>

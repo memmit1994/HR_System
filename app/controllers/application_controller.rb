@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -10,13 +11,14 @@ class ApplicationController < ActionController::Base
     if user.position == 'admin' or user.position == 'board'
       events_path
     else
-      new_available_path
+      users_volunteer_dashboard_path
     end
   end
+
   protected
 
   def configure_devise_permitted_parameters
-    registration_params = [:name,:phone_number,:position, :email, :password, :password_confirmation]
+    registration_params = [:name, :phone_number, :position, :email, :password, :password_confirmation]
 
     if params[:action] == 'update'
       devise_parameter_sanitizer.for(:account_update) {

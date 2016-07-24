@@ -4,7 +4,11 @@ class SeminarsController < ApplicationController
   # GET /seminars
   # GET /seminars.json
   def index
-    @seminars = Seminar.all
+    if params['event_id']
+      @seminars = Seminar.where(event_id: params['event_id'])
+    else
+      @seminars = Seminar.all
+    end
   end
 
   # GET /seminars/1

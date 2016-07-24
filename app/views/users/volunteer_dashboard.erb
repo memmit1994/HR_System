@@ -1,7 +1,22 @@
-<%= form_tag new_available_path,:method => 'get' do %>
+<%= form_tag new_available_path, :method => 'get' do %>
     <p>
-      <%= collection_select :event,:event_id,Event.all,:id,:name %>
+      <%= collection_select :event, :event_id, Event.all, :id, :name %>
       <%= submit_tag 'Fill Availability' %>
     </p>
+<% end %>
+
+<% if Task.where(current_user.id).count > 0  %>
+    <h1>Tasks:</h1>
+    <% Task.where(current_user.id).each do |task| %>
+        <%= '-Description: ' + task.description %><br/>
+        <% if task.shift_id %>
+            <%= '-Start Time: '+ Shift.find(task.shift_id).start_time.to_s %>
+        <% elsif task.seminar_id %>
+            <%= 'Start Time: '+ Seminar.find(task.seminar_id).start_time.to_s %>
+        <% elsif task.shift_id and task.seminar_id %>
+            <%= 'Start Time: '+ Shift.find(task.shift_id).start_time.to_s %>
+            <%= 'Start Time: '+ Seminar.find(task.seminar_id).start_time.to_s %>
+        <% end %>
+    <% end %>
 <% end %>
 
