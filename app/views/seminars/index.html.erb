@@ -17,7 +17,7 @@
       <tr>
         <td><%= seminar.start %></td>
         <td><%= seminar.end %></td>
-        <td><%= seminar.event_id %></td>
+        <td><%= Event.find(seminar.event_id).name %></td>
         <td><%= seminar.name %></td>
         <td><%= seminar.speaker %></td>
         <td><%= seminar.description %></td>
@@ -30,4 +30,4 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Seminar', new_seminar_path %>
+<%= link_to 'Back', events_path %>

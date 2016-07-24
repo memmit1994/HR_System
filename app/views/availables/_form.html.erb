@@ -16,18 +16,23 @@
     </div>
 
     <% Event.all.each do |event| %>
-        <% if @shifts_unsubmitted_before.count != 0 %>
+
+        <% if @shifts_unsubmitted_before.keys.count != 0 %>
             <div class="field">
               <h2><%= event.name + ' Event Shifts:' %></h2>
               <%= f.label :shift_id %><br>
-              <%= f.collection_check_boxes :shift_id, @shifts_unsubmitted_before, :id, :start %>
+              <%= f.collection_check_boxes :shift_id, @shifts_unsubmitted_before[event.id], :id, :start %>
             </div>
-            <div class="actions">
-              <%= f.submit 'Fill Availability' %>
-            </div>
-        <% else %>
-            <h2>You've Filled the availability before.</h2>
-        <% end %>
+
+        <%end%>
+    <% end %>
+
+    <% if @shifts_unsubmitted_before.keys.count != 0 %>
+    <div class="actions">
+      <%= f.submit 'Fill Availability' %>
+    </div>
+    <% else %>
+        <h2>You've Filled the availability before.</h2>
     <% end %>
 
 

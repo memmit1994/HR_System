@@ -4,7 +4,7 @@ class AvailablesController < ApplicationController
   # GET /availables
   # GET /availables.json
   def index
-    @availables = Available.all
+    @availables = Available.where(user_id: current_user.id)
   end
 
   # GET /availables/1
@@ -15,13 +15,15 @@ class AvailablesController < ApplicationController
   # GET /availables/new
   def new
     @available = Available.new
-    @shifts_unsubmitted_before = []
+    @shifts_unsubmitted_before = Hash.new([])
 
     Shift.all.each do |shift|
+
       if Available.where(user_id: current_user.id, shift_id: shift.id).count == 0
-        @shifts_unsubmitted_before << shift
+        @shifts_unsubmitted_before[shift.event.id]+=[(shift)]
       end
     end
+
   end
 
   # GET /availables/1/edit

@@ -61,7 +61,7 @@ class SeminarsController < ApplicationController
   def destroy
     @seminar.destroy
     respond_to do |format|
-      format.html { redirect_to seminars_url, notice: 'Seminar was successfully destroyed.' }
+      format.html { redirect_to events_url, notice: 'Seminar was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

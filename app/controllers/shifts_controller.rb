@@ -5,9 +5,10 @@ class ShiftsController < ApplicationController
   # GET /shifts.json
   def index
     if params['event_id']
-      @shifts_unsubmitted_before = Shift.where(event_id: params['event_id'])
+      @event_id = params['event_id']
+      @shifts = Shift.where(event_id: params['event_id'])
     else
-      @shifts_unsubmitted_before = Shift.all
+      @shifts = Shift.all
     end
 
   end
@@ -62,7 +63,7 @@ class ShiftsController < ApplicationController
   def destroy
     @shift.destroy
     respond_to do |format|
-      format.html { redirect_to shifts_url, notice: 'Shift was successfully destroyed.' }
+      format.html { redirect_to shifts_url, notice: 'Shift was successfully destroyed.',event_id: params['event_id'] }
       format.json { head :no_content }
     end
   end

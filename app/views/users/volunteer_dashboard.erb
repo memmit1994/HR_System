@@ -1,24 +1,66 @@
-<div class='vol-availability'>
-<%= form_tag new_available_path, :method => 'get' do %>
-    <p>
-      <%= collection_select :event, :event_id, Event.all, :id, :name %>
-      <%= submit_tag 'Fill Availability' %>
-    </p>
-<% end %>
-</div>
+<!-- DASHBOARD CONTENT -->
+<div class="hr-dashboard-page-content">
+  <% if Task.where(current_user.id).count > 0 %>
+      <!-- TITLE -->
+      <h1>
+        <i class="fa fa-tasks"></i>
+        Tasks
+      </h1>
+      <% Task.where(current_user.id).each do |task| %>
+          <!-- SINGLE TASK -->
+          <div class="hr-task">
+            <!-- SINGLE TASK LEFT PART -->
+            <div class="hr-task-media">
+              <div class="hr-task-media__content">
+                <p class="hr-task__day">
+                  <% start_date = Shift.find(task.shift_id).start %>
+                  <%= day = start_date.day %> <sup> <%= day.ordinalize[-2, 2] %> </sup>
+                </p>
+                <p class="hr-task__month">
+                  <%= start_date.strftime('%B') %>
+                </p>
+                <!--<a href="#" class="hr-task__approve">-->
+                <!--<i class="hr-task__approve__icon fa fa-check"></i>-->
+                <!--</a>-->
+                <!--<a href="#" class="hr-task__cancel">-->
+                <!--<i class="hr-task__cancel__icon fa fa-close"></i>-->
+                <!--</a>-->
+              </div>
+            </div>
+            <!-- SINGLE TASK LEFT PART END -->
+            <!-- SINGLE TASK RIGHT PART -->
+            <div class="hr-task-body">
+              <h3 class="hr-task__title">
+                <%= Shift.find(task.shift_id).event.name + ' Event' %>
+              </h3>
+              <h6 class="hr-task__title">
+                <%= task.committee.name %>
+              </h6>
+              <p class="hr-task__text">
+                <%= task.description %>
+              </p>
+              <!--<a class="hr-task__execuse" href="#">Submit Execuse</a>-->
+            </div>
+            <!-- SINGLE TASK RIGHT PART END -->
+          </div>
+          <!-- SINGLE TASK END -->
+          </div>
+          <!-- DASHBOARD CONTENT END -->
 
-<% if Task.where(current_user.id).count > 0  %>
-    <h1>Tasks:</h1>
-    <% Task.where(current_user.id).each do |task| %>
-        <%= '-Description: ' + task.description %><br/>
-        <% if task.shift_id %>
-            <%= '-Start Time: '+ Shift.find(task.shift_id).start_time.to_s %>
-        <% elsif task.seminar_id %>
-            <%= 'Start Time: '+ Seminar.find(task.seminar_id).start_time.to_s %>
-        <% elsif task.shift_id and task.seminar_id %>
-            <%= 'Start Time: '+ Shift.find(task.shift_id).start_time.to_s %>
-            <%= 'Start Time: '+ Seminar.find(task.seminar_id).start_time.to_s %>
-        <% end %>
+      <% end %>
+  <% else %>
+      <h1>
+        <i class="fa fa-tasks"></i>
+        You Have No Assigned Tasks
+      </h1>
+  <% end %>
+
+  <div class='vol-availability'>
+    <%= form_tag new_available_path, :method => 'get' do %>
+
+        <%= submit_tag 'Fill Availability', class: 'fill-availability-btn' %>
+
     <% end %>
-<% end %>
 
+    <%= link_to 'See All Filled Availabilities', availables_path,class:'availabilities-link' %>
+  </div>
