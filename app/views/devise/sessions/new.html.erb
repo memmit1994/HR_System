@@ -1,26 +1,36 @@
-<h2>Log in</h2>
+<div class="login-page">
+  <div class="login-page-outer-container">
+    <div class="login-page-inner-container">
+      <img class="login-logo" src="../../assets/images/login/login-logo.png" alt="IEEE logo">
+      <div class="login-form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <span class="login-form__label__text">Email</span>
+              <%= f.email_field :email, autofocus: true, class: "login-form__input" %>
+            </div>
+            <div class="field">
+            <span class="login-form__label__text">Password</span>
+            <%= f.password_field :password, autocomplete: "off", class: "login-form__input" %><br>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <% if devise_mapping.rememberable? -%>
+                <div class="field">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+                  <span class="login-form__label__text">Remember Me</span>
+                  <%= f.check_box :remember_me %>
+                  </div>
+                  <div class="field">
+                <%= f.submit "Log in", class: "login-form__submit" %><br>
+                  </div>
+                <%= render "devise/shared/links" %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                  </div>
+            <% end -%>
+        <% end %>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
+
 
 <%= render "devise/shared/links" %>

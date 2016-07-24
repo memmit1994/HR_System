@@ -1,9 +1,11 @@
+<div class='vol-availability'>
 <%= form_tag new_available_path, :method => 'get' do %>
     <p>
       <%= collection_select :event, :event_id, Event.all, :id, :name %>
       <%= submit_tag 'Fill Availability' %>
     </p>
 <% end %>
+</div>
 
 <% if Task.where(current_user.id).count > 0  %>
     <h1>Tasks:</h1>

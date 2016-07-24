@@ -5,9 +5,9 @@ class ShiftsController < ApplicationController
   # GET /shifts.json
   def index
     if params['event_id']
-      @shifts_submitted_before = Shift.where(event_id: params['event_id'])
+      @shifts_unsubmitted_before = Shift.where(event_id: params['event_id'])
     else
-      @shifts_submitted_before = Shift.all
+      @shifts_unsubmitted_before = Shift.all
     end
 
   end

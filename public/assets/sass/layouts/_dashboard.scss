@@ -1,0 +1,9 @@
+.hr-dashboard {
+    &-page-content {
+        @extend .container;
+
+        max-width: 655px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}

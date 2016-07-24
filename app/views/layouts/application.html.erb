@@ -1,29 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HRTask</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <title>IEEE AlexSB Volunteers | Login</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
+<% if current_user %>
+    <!-- HEADER -->
+    <header class="hr-header">
+      <div class="hr-header-container">
+        <!-- HEADER LOGO -->
+        <div class="hr-header-logo">
+          <% if current_user.admin? or current_user.board? %>
+              <a href=<%= events_url %>>
+                <img class="hr-header-logo__image" src="../../assets/images/header/header-logo.png" alt="Alexsb logo">
+              </a>
+          <% else %>
+              <a href=<%= users_volunteer_dashboard_url %>>
+                <img class="hr-header-logo__image" src="../../assets/images/header/header-logo.png" alt="Alexsb logo">
+              </a>
+          <% end %>
 
-<% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    </li>
-      <% if current_user.admin? or current_user.board? %>
+        </div>
+        <!-- HEADER LOGO END -->
+        <!-- HEADER TITLE AND SEARCH -->
+        <div class="hr-header-title">
+          <h2 class="hr-header-title__text">Dashboard</h2>
+          <!--<label class="hr-header-search">-->
+          <!--<i class="hr-header-search__icon fa fa-search"></i>-->
+          <!--<input class="hr-header-search__input" type="search" name="name" value="">-->
+          <!--</label>-->
+        </div>
+        <!-- HEADER TITLE AND SEARCH END-->
+        <!-- HEADER USER AND SUBMENU -->
+        <div class="hr-header-user">
+          <img class="hr-header-user__image" src="../../assets/images/header/user.png" alt="profile picture" width="60" height="60"/>
+          <h3 class="hr-header-user__name">
+            <%= current_user.name %>
+          </h3>
 
-          <li><%= link_to('home', events_path) %></li>
-      <% else %>
-          <li><%= link_to('home', users_volunteer_dashboard_path) %></li>
-      <% end %>
-
-<% else %>
-    <li>
-      <%= link_to('Login', new_user_session_path) %>
-    </li>
+          <ul class="hr-header-submenu">
+            <% if current_user.admin? or current_user.board? %>
+                <li class="hr-header-submenu__item">
+                  <a class="hr-header-submenu__anchor" href=<%= events_url %>>>
+                    <i class="hr-header-submenu__icon fa fa-home"></i>
+                    <span class="hr-header-submenu__text">Dashboard</span>
+                  </a>
+                </li>
+            <% else %>
+                <li class="hr-header-submenu__item">
+                  <a class="hr-header-submenu__anchor" href=<%= users_volunteer_dashboard_url %>>
+                    <i class="hr-header-submenu__icon fa fa-home"></i>
+                    <span class="hr-header-submenu__text">Dashboard</span>
+                  </a>
+                </li>
+            <% end %>
+            <li class="hr-header-submenu__item">
+              <a class="hr-header-submenu__anchor" href=<%= user_url(current_user)%>>
+                <i class="hr-header-submenu__icon fa fa-user"></i>
+                <span class="hr-header-submenu__text">Profile</span>
+              </a>
+            </li>
+            <li class="hr-header-submenu__item">
+              <a class="hr-header-submenu__anchor">
+                <i class="hr-header-submenu__icon fa fa-sign-out"></i>
+                <span class="hr-header-submenu__text"><%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "hr-header-submenu__text") %></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- HEADER USER AND SUBMENU END -->
+      </div>
+    </header>
+    <!-- HEADER END -->
 <% end %>
+
 
 <%= yield %>
 

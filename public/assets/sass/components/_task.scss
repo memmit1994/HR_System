@@ -1,0 +1,73 @@
+.hr-task {
+    @extend .media-object;
+    border: 1px solid #e2e2e1;
+    border-radius: 7px;
+
+    &-media {
+        @extend .media-left;
+        padding-right: 0;
+        border-right: 1px solid #e2e2e1;
+
+        &__content {
+            width: 160px;
+            text-align: center;
+        }
+    }
+
+    &-body {
+        @extend .media-body;
+        padding: 15px;
+    }
+
+    &__day {
+        font-size: $font-size-h1;
+        color: $text-color-light;
+        background: $primary-color;
+        border-top-left-radius: 7px;
+        margin-bottom: 6px;//equivalent to 20px due to line-height
+    }
+
+    &__month {
+        @extend h1;
+        margin-bottom: 10px;
+    }
+
+    &__approve {
+        margin-right: 25px;
+    }
+
+    &__cancel {
+
+    }
+
+    &__approve,
+    &__cancel {
+        border: 1px solid $primary-color;
+        border-radius: 50%;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        text-align: center;
+        transition: 0.3s ease;
+
+        &:hover {
+            background: $primary-color;
+            color: white;
+        }
+    }
+
+    &__title {
+
+    }
+
+    &__text {
+
+    }
+
+    &__execuse {
+        @extend .hr-button--default;
+        @extend .hr-button--blue;
+        display: table;
+    }
+}

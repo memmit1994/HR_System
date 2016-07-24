@@ -1,0 +1,31 @@
+.login {
+    &-page {
+        background: url('../images/login/login-background.jpg');
+        background-size: cover;
+        background-position: center center;
+        min-height: 100vh;
+        display: table;
+        width: 100%;
+        padding: 30px 0;
+    }
+
+    &-page-outer-container {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    &-page-inner-container {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &-logo {
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    &-form {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}

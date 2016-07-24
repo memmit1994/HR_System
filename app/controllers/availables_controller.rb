@@ -15,11 +15,11 @@ class AvailablesController < ApplicationController
   # GET /availables/new
   def new
     @available = Available.new
-    @shifts_submitted_before = []
+    @shifts_unsubmitted_before = []
 
     Shift.all.each do |shift|
       if Available.where(user_id: current_user.id, shift_id: shift.id).count == 0
-        @shifts_submitted_before << shift
+        @shifts_unsubmitted_before << shift
       end
     end
   end

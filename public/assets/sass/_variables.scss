@@ -1,0 +1,56 @@
+// --------------------------------------------------
+//                 Variables
+// --------------------------------------------------
+
+
+// Colors
+
+$primary-color: #0064c2;
+$primary-color-dark: #0555a0;
+$title-color: #0064c2;
+$title-color-light: white;
+
+
+// Text
+
+$font-weight-base: normal;
+$heading-font-weight: normal;
+
+// --------------------------------------------------
+//                 BOOTSTRAP VARIABLES
+// --------------------------------------------------
+
+
+// Container
+// Changing container size to 1200px and large media screen to 1230px
+
+$screen-lg: 1230px;
+$grid-gutter-width: 30px;
+$container-large-desktop: (1140px + $grid-gutter-width);
+
+// Typography
+// Body color, base font size and family
+
+$text-color: #a6b9cb;
+$text-color-light: white;
+$font-size-base: 16px;
+$font-size-md: 15px;
+$font-size-sm: 14px;
+$font-size-xs: 13px;
+$line-height-base: (20px/$font-size-base);
+$line-height-text: (24px/$font-size-base); //~24px
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+$headings-color: $title-color;
+
+$font-size-h1: (38px/$font-size-base) * 1rem;
+$font-size-h2: (30px/$font-size-base) * 1rem;
+$font-size-h3: (26px/$font-size-base) * 1rem;
+$font-size-h4: (22px/$font-size-base) * 1rem;
+$font-size-h5: (20px/$font-size-base) * 1rem;
+$font-size-h6: (18px/$font-size-base) * 1rem;
+
+$fa-font-path: '../fonts/font-awesome';
+
+@import 'font-awesome/font-awesome.scss';
+@import 'bootstrap/variables';

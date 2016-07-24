@@ -17,12 +17,12 @@
 
     <% if params['seminar_id'] %>
 
-        <select name="task[user_id]" id="task_user_id">
+        <select name="task[user_id]" id="task_user_id" style="color:black !important;">
           <% User.all.each do |user| %>
               <% if not Task.where(user_id: user.id, seminar_id: params['seminar_id']).count > 0  %>
-                  <option value=<%= user.id %>><%= user.name %></option>
+                  <option style='color:black;' value=<%= user.id %>><%= user.name %></option>
               <% else %>
-                  <option value=<%= user.id %> disabled><%= user.name %></option>
+                  <option style='color:black;'  value=<%= user.id %> disabled><%= user.name %></option>
               <% end %>
           <% end %>
         </select>
@@ -33,9 +33,9 @@
 
     <% elsif params['shift_id'] %>
 
-        <select name="task[user_id]" id="task_user_id">
+        <select name="task[user_id]" id="task_user_id" style="color:black !important;">
           <% User.all.each do |user| %>
-              <% if not Task.where(user_id: user.id, shift_id: params['shift_id']).count > 0 %>
+              <% if (not Task.where(user_id: user.id, shift_id: params['shift_id']).count > 0) and (Available.where(user_id: user.id, shift_id: params['shift_id']).count > 0) %>
                   <option value=<%= user.id %>><%= user.name %></option>
               <% else %>
                   <option value=<%= user.id %> disabled><%= user.name %></option>

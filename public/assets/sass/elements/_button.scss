@@ -1,0 +1,15 @@
+.hr-button {
+    &--default {
+        font-size: $font-size-h4;
+        padding: 10px;
+        border-radius: 7px;
+    }
+    &--blue {
+        background-color: $primary-color;
+        color: white;
+        &:hover,
+        &:active {
+            background-color: $primary-color-dark;
+        }
+    }
+}

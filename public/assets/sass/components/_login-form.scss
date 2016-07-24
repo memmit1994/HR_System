@@ -1,0 +1,57 @@
+.login-form {
+    &__label {
+        position: relative;
+        display: block;
+        margin-bottom: 25px;
+        color: $text-color-light;
+        font-size: $font-size-h4;
+
+        &__text {
+            width: 115px;
+            float: left;
+            margin-right: 30px;
+            line-height: 40px;
+        }
+
+        &--remember {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        &--remember #{&}#{__text} {//.login-form__label--remember .login-form__label__text
+            width: auto;
+            float: none;
+            margin-right: 0;
+        }
+    }
+
+    &__input {
+        background: none;
+        border: 2px solid white;
+        border-radius: 5px;
+        padding: 7px;
+        outline: none;
+        width: 155px;
+        height: 40px;
+    }
+
+    &__remember {
+
+    }
+
+    &__submit {
+        color: white;
+        font-size: $font-size-h4;
+        background-color: #27ae60;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        width: 93px;
+        height: 40px;
+
+        &:hover,
+        &:active {
+            background-color: darken(#27ae60, 10);
+        }
+    }
+}

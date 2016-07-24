@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @shifts_submitted_before.each do |shift| %>
+    <% @shifts_unsubmitted_before.each do |shift| %>
       <tr>
         <td><%= shift.start %></td>
         <td><%= shift.end %></td>
