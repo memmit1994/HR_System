@@ -1,0 +1,25 @@
+<%= form_for(@committee_join) do |f| %>
+  <% if @committee_join.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@committee_join.errors.count, "error") %> prohibited this committee_join from being saved:</h2>
+
+      <ul>
+      <% @committee_join.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select :user_id,User.all,:id,:name%>
+  </div>
+  <div class="field">
+    <%= f.label :committee_id %><br>
+    <%= f.collection_select :committee_id,Committee.all,:id,:name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

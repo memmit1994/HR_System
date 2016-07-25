@@ -3,17 +3,28 @@
   <strong>Description:</strong>
   <%= @task.description %>
 </p>
+
+
 <p>
   <strong>User:</strong>
-  <%= @task.user_id %>
+  <%= User.find(@task.user_id).name %>
 </p>
 <p>
-  <strong>Seminar:</strong>
-  <%= @task.seminar_id %>
+  <strong>Committee:</strong>
+  <%= @task.committee.name %>
 </p>
-<p>
-  <strong>Shift:</strong>
-  <%= @task.shift_id %>
-</p>
+<% if @task.seminar_id %>
+    <p>
+      <strong>Seminar:</strong>
+      <%= Seminar.find(@task.seminar_id).name %>
+    </p>
+<% end %>
+<% if @task.shift_id %>
+    <p>
+      <strong>Shift:</strong>
+      <%= Shift.find(@task.shift_id).name %>
+    </p>
+<% end %>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', events_path %>

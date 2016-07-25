@@ -10,6 +10,7 @@
 <table>
   <thead>
   <tr>
+    <th>Name</th>
     <th>Start</th>
     <th>End</th>
     <th>Event</th>
@@ -21,6 +22,7 @@
   <tbody>
   <% @shifts.each do |shift| %>
       <tr>
+        <td><%= shift.name %></td>
         <td><%= shift.start %></td>
         <td><%= shift.end %></td>
         <td><%= Event.find(shift.event_id).name %></td>

@@ -1,12 +1,12 @@
 <!-- DASHBOARD CONTENT -->
 <div class="hr-dashboard-page-content">
-  <% if Task.where(current_user.id).count > 0 %>
+  <% if Task.where(user_id: current_user.id).count > 0 %>
       <!-- TITLE -->
       <h1>
         <i class="fa fa-tasks"></i>
         Tasks
       </h1>
-      <% Task.where(current_user.id).each do |task| %>
+      <% Task.where(user_id: current_user.id).each do |task| %>
           <!-- SINGLE TASK -->
           <div class="hr-task">
             <!-- SINGLE TASK LEFT PART -->
@@ -44,10 +44,11 @@
             <!-- SINGLE TASK RIGHT PART END -->
           </div>
           <!-- SINGLE TASK END -->
-          </div>
-          <!-- DASHBOARD CONTENT END -->
-
       <% end %>
+      </div>
+      <!-- DASHBOARD CONTENT END -->
+
+
   <% else %>
       <h1>
         <i class="fa fa-tasks"></i>
@@ -62,5 +63,5 @@
 
     <% end %>
 
-    <%= link_to 'See All Filled Availabilities', availables_path,class:'availabilities-link' %>
+    <%= link_to 'See All Filled Availabilities', availables_path, class: 'availabilities-link' %>
   </div>

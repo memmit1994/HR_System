@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
+
   root  'events#index'
   get '/users/createEvent' => 'users#createEvent'
   get '/users/volunteer_dashboard' => 'users#volunteer_dashboard'
   get '/users/createEvent' => 'users#createEvent'
   get '/users/volunteer_dashboard' => 'users#volunteer_dashboard'
   devise_for :users
-
   resources :shifts
   resources :availables
   resources :events do
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :committees
   resources :users
   resources :seminars
+  resources :committee_joins
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

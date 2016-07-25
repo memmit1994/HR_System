@@ -26,14 +26,19 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+    if (User.find(params['task']['user_id']).committees.pluck(:id)).include?(params['task']['committee_id'])
+
+      respond_to do |format|
+        if @task.save
+          format.html { redirect_to @task, notice: 'Task was successfully created.' }
+          format.json { render :show, status: :created, location: @task }
+        else
+          format.html { render :new }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to (new_task_url+'?shift_id='+params['task']['shift_id']), notice: ('User is not in '+ Committee.find(params['task']['committee_id']).name + ' Committee')
     end
   end
 
@@ -69,6 +74,6 @@ class TasksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
-    params.require(:task).permit(:description, :user_id, :seminar_id, :shift_id,:committee_id)
+    params.require(:task).permit(:description, :user_id, :seminar_id, :shift_id, :committee_id)
   end
 end
