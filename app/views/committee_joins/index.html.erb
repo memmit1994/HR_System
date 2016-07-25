@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Committee Joins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Committee</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @committee_joins.each do |committee_join| %>
+      <tr>
+        <td><%= committee_join.user.name %></td>
+        <td><%= committee_join.committee.name %></td>
+        <td><%= link_to 'Show', committee_join %></td>
+        <td><%= link_to 'Edit', edit_committee_join_path(committee_join) %></td>
+        <td><%= link_to 'Destroy', committee_join, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Committee join', new_committee_join_path %>

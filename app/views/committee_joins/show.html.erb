@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @committee_join.user.name %>
+</p>
+
+<p>
+  <strong>Committee:</strong>
+  <%= @committee_join.committee.name %>
+</p>
+
+<%= link_to 'Edit', edit_committee_join_path(@committee_join) %> |
+<%= link_to 'Back', committee_joins_path %>

@@ -22,6 +22,7 @@
         <td><%= link_to 'Add Shift',{:controller => 'shifts',:action => 'new',:event_id => event.id } %></td>
         <td><%= link_to 'Shifts',{:controller => 'shifts',:action => 'index',:event_id => event.id } %></td>
         <td><%= link_to 'Seminars',{:controller => 'seminars',:action => 'index',:event_id => event.id } %></td>
+        <td><%= link_to 'Tasks',{:controller => 'seminars',:action => 'index',:event_id => event.id } %></td>
       </tr>
     <% end %>
   </tbody>

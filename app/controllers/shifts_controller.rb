@@ -32,6 +32,8 @@ class ShiftsController < ApplicationController
   def create
     @shift = Shift.new(shift_params)
 
+
+
     respond_to do |format|
       if @shift.save
         format.html { redirect_to @shift, notice: 'Shift was successfully created.' }
@@ -76,6 +78,6 @@ class ShiftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shift_params
-      params.require(:shift).permit(:start, :end, :event_id)
+      params.require(:shift).permit(:start, :end, :event_id,:name)
     end
 end

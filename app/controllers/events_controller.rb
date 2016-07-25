@@ -37,6 +37,10 @@ class EventsController < ApplicationController
     end
   end
 
+    def tasks
+      @tasks = Event.find(params[:event_id]).shifts.map(&:tasks)
+    end
+
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update

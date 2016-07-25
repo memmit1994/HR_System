@@ -7292,6 +7292,11 @@ textarea {
     display: block;
 }
 
+.hr-task{
+    position: relative;
+    margin-bottom: 20px;
+}
+
 .media-object.img-thumbnail, .img-thumbnail.hr-task {
     max-width: none;
 }
@@ -7641,7 +7646,7 @@ a:hover {
     border-radius: 5px;
     padding: 1rem;
     margin-left: 40%;
-    background-color: #337ab7;
+    background-color: #0064c2;
     color: white;
 }
 
