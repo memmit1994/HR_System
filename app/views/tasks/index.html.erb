@@ -1,9 +1,8 @@
-
 <h1>Listing Tasks</h1>
-<% Committee.all.each do |committee| %>
-    <h2><%= committee.name %></h2>
-    <table> s
-      <thead>
+<% @tasks.group_by { |t| t.committee }.each do |committee, tasks| %>
+  <h2><%= committee.name %></h2>
+  <table>
+    <thead>
       <tr>
         <th>Description</th>
         <th>User</th>
@@ -12,22 +11,22 @@
         <th>Event</th>
         <th colspan="3"></th>
       </tr>
-      </thead>
-      <tbody>
-      <% Task.where(committee_id:committee.id).each do |task| %>
-          <tr>
-            <td><%= task.description %></td>
-            <td><%= User.find_by_id(task.user_id) ? User.find_by_id(task.user_id).name : '' %></td>
-            <td><%= Seminar.find_by_id(task.seminar_id) ? Seminar.find_by_id(task.seminar_id).name : '' %></td>
-            <td><%= Shift.find_by_id(task.shift_id) ? Shift.find_by_id(task.shift_id).name : '' %></td>
-            <td><%= Shift.find_by_id(task.shift_id) ? Shift.find_by_id(task.shift_id).event.name : Seminar.find_by_id(task.seminar_id).event.name  %></td>
-            <td><%= link_to 'Show', task %></td>
-            <td><%= link_to 'Edit', edit_task_path(task) %></td>
-            <td><%= link_to 'Destroy', task, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-          </tr>
+    </thead>
+    <tbody>
+      <% tasks.each do |task| %>
+        <tr>
+          <td><%= task.description %></td>
+          <td><%= task.user ? task.user.name : '' %></td>
+          <td><%= task.seminar ? task.seminar.name : '' %></td>
+          <td><%= task.shift ? task.shift.name : '' %></td>
+          <td><%= task.shift.event ? task.shift.event.name : ''  %></td>
+          <td><%= link_to 'Show', task %></td>
+          <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <td><%= link_to 'Destroy', task, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
       <% end %>
-      </tbody>
-    </table>
+    </tbody>
+  </table>
 <% end %>
 <br>
 <%= link_to 'New Task', new_task_path %>
