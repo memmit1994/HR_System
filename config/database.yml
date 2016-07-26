@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 6249116
+  password: root
   socket: /var/run/mysqld/mysqld.sock
 
 development:
@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: HR_Task_production
   username: HR_Task
   password: <%= ENV['HR_TASK_DATABASE_PASSWORD'] %>
