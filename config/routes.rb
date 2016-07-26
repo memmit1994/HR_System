@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :availables
   resources :events do
     resources :seminars
+    get 'tasks', on: :member
   end
   resources :tasks
   resources :committees

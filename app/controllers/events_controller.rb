@@ -37,10 +37,10 @@ class EventsController < ApplicationController
     end
   end
 
-    def tasks
-      @tasks = Event.find(params[:event_id]).shifts.map(&:tasks)
-    end
-  
+  def tasks
+    @tasks = Event.find(params[:id]).shifts.map(&:tasks).flatten.group_by {|t| t.committee}
+  end
+
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
@@ -68,13 +68,13 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:name, :start, :end)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:name, :start, :end)
+  end
 end
