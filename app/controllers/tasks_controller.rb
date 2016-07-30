@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
-    if (User.find(params['task']['user_id']).committees.pluck(:id)).include?(params['task']['committee_id'])
+    if (User.find(params['task']['user_id']).committees.pluck(:id).map(&:to_s)).include?(params['task']['committee_id'])
 
       respond_to do |format|
         if @task.save
