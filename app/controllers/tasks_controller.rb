@@ -25,8 +25,8 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
-    if (User.find(params['task']['user_id']).committees.pluck(:id).map(&:to_s)).include?(params['task']['committee_id'])
+    # if user is assigned task to his committee or to activities ( as logsitics )
+    if ((User.find(params['task']['user_id']).committees.pluck(:id).map(&:to_s)).include?(params['task']['committee_id'])) or params['task']['committee_id']=='7'
 
       respond_to do |format|
         if @task.save

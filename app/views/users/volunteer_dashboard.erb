@@ -37,7 +37,9 @@
                 <%= task.committee.name %>
               </h6>
               <p class="hr-task__text">
-                <%= task.description %>
+                - <%= task.shift.name %> : <%= task.shift.start %><br>
+                - description : <%= task.description %>
+
               </p>
               <!--<a class="hr-task__execuse" href="#">Submit Execuse</a>-->
             </div>
